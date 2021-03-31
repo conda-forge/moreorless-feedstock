@@ -24,10 +24,8 @@ requirements:
   run:
     - click
     - dataclasses  # [py<37]
-    - parameterized
     - python
-    - volatile
-
+    
 test:
   imports:
     - moreorless

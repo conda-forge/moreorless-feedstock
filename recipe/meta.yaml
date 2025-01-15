@@ -13,24 +13,25 @@ source:
 build:
   noarch: python
   number: 6
-  script: ${{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
 
 requirements:
   host:
     - pip
-    - python
+    - python {{ python_min }}
     - setuptools >=38.3.0
     - setuptools_scm
   run:
     - click
-    - python
-    
+    - python >={{ python_min }}
+
 test:
   imports:
     - moreorless
   commands:
     - pip check
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
